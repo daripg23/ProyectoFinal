@@ -11,7 +11,7 @@ namespace ProyectoFinal
 {
     public partial class FrmProveedores : Form
     {
-        string conexion = "server=localhost;database=inventario;uid=root;pwd=0819200500178";
+        string conexion = "server=localhost;database=proyectofinal;uid=root;pwd=1234";
         int idSeleccionado = 0;
 
         System.Data.DataTable dt = new System.Data.DataTable();
@@ -26,27 +26,40 @@ namespace ProyectoFinal
         {
             if (txtNombreProveedor.Text == "")
             {
-                errorProvider1.SetError(txtNombreProveedor, "No pueden haber campos vacios");
+                errorProvider1.SetError(txtNombreProveedor, "No pueden haber campos vacíos");
                 return;
             }
 
-            if (txtRTN.Text == "")
+            if (txtContacto.Text == "")
             {
-                errorProvider1.SetError(txtRTN, "No pueden haber campos vacios");
+                errorProvider1.SetError(txtContacto, "No pueden haber campos vacíos");
                 return;
             }
 
             if (txtTelefono.Text == "")
             {
-                errorProvider1.SetError(txtTelefono, "No pueden haber campos vacios");
+                errorProvider1.SetError(txtTelefono, "No pueden haber campos vacíos");
                 return;
             }
 
-            if (TxtCorreo.Text == "")
+            if (txtCorreo.Text == "")
             {
-                errorProvider1.SetError(TxtCorreo, "No pueden haber campos vacios");
+                errorProvider1.SetError(txtCorreo, "No pueden haber campos vacios");
                 return;
             }
+
+            if (txtDireccion.Text == "")
+            {
+                errorProvider1.SetError(txtDireccion, "No pueden haber campos vacíos");
+                return;
+            } 
+
+            if(txtProductos.Text == "")
+            {
+                errorProvider1.SetError(txtProductos, "No pueden haber campos vacíos");
+                return;
+            }
+
 
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -58,17 +71,17 @@ namespace ProyectoFinal
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@nombre_prov", txtNombreProveedor.Text);
-                    cmd.Parameters.AddWithValue("@rtn_prov", txtRTN.Text);
+                    //cmd.Parameters.AddWithValue("@rtn_prov", txtRTN.Text);
                     cmd.Parameters.AddWithValue("@telefono_prov", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@correo_prov", TxtCorreo.Text);
+                    cmd.Parameters.AddWithValue("@correo_prov", txtCorreo.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Proveedor registrado correctamente!");
 
                     txtNombreProveedor.Clear();
-                    txtRTN.Clear();
+                    //txtRTN.Clear();
                     txtTelefono.Clear();
-                    TxtCorreo.Clear();
+                    txtCorreo.Clear();
                     CargarDatos();
                 }
                 catch (MySqlException ex)
@@ -124,18 +137,18 @@ namespace ProyectoFinal
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@nombre_prov", txtNombreProveedor.Text);
-                    cmd.Parameters.AddWithValue("@rtn_prov", txtRTN.Text);
+                   //cmd.Parameters.AddWithValue("@rtn_prov", txtRTN.Text);
                     cmd.Parameters.AddWithValue("@telefono_prov", txtTelefono.Text);
-                    cmd.Parameters.AddWithValue("@correo_prov", TxtCorreo.Text);
+                    cmd.Parameters.AddWithValue("@correo_prov", txtCorreo.Text);
                     cmd.Parameters.AddWithValue("@id", idSeleccionado);
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Proveedor actualizado con exito");
+                    MessageBox.Show("Proveedor actualizado con éxito");
 
                     txtNombreProveedor.Clear();
-                    txtRTN.Clear();
+                    //txtRTN.Clear();
                     txtTelefono.Clear();
-                    TxtCorreo.Clear();
+                    txtCorreo.Clear();
                     CargarDatos();
                 }
                 catch (Exception ex)
@@ -171,9 +184,9 @@ namespace ProyectoFinal
                         MessageBox.Show("Proveedor eliminado con exito");
 
                         txtNombreProveedor.Clear();
-                        txtRTN.Clear();
+                        //txtRTN.Clear();
                         txtTelefono.Clear();
-                        TxtCorreo.Clear();
+                        txtCorreo.Clear();
                         CargarDatos();
                     }
                     catch (Exception ex)
@@ -189,9 +202,9 @@ namespace ProyectoFinal
             DataGridViewRow fila = dgvProveedores.Rows[e.RowIndex];
             idSeleccionado = Convert.ToInt32(fila.Cells["id"].Value);
             txtNombreProveedor.Text = fila.Cells["nombre_prov"].Value.ToString();
-            txtRTN.Text = fila.Cells["rtn_prov"].Value.ToString();
+            //txtRTN.Text = fila.Cells["rtn_prov"].Value.ToString();
             txtTelefono.Text = fila.Cells["telefono_prov"].Value.ToString();
-            TxtCorreo.Text = fila.Cells["correo_prov"].Value.ToString();
+            txtCorreo.Text = fila.Cells["correo_prov"].Value.ToString();
         }
     }
 }
