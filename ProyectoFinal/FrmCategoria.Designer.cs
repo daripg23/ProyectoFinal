@@ -252,18 +252,22 @@
             // labelTotCategorias
             // 
             labelTotCategorias.AutoSize = true;
+            labelTotCategorias.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelTotCategorias.ForeColor = Color.FromArgb(57, 127, 251);
             labelTotCategorias.Location = new Point(54, 256);
             labelTotCategorias.Name = "labelTotCategorias";
-            labelTotCategorias.Size = new Size(13, 15);
+            labelTotCategorias.Size = new Size(14, 15);
             labelTotCategorias.TabIndex = 16;
             labelTotCategorias.Text = "0";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(57, 127, 251);
             label5.Location = new Point(13, 256);
             label5.Name = "label5";
-            label5.Size = new Size(35, 15);
+            label5.Size = new Size(37, 15);
             label5.TabIndex = 15;
             label5.Text = "Total:";
             // 

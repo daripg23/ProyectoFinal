@@ -12,8 +12,10 @@ using System.Net.Mail;
 
 namespace ProyectoFinal
 {
+    
     public partial class FrmCategoria : Form
     {
+        public FrmDashboard dashboard;
         string conexion = "server=localhost;database=proyectofinal;uid=root;pwd=1234";
         int idSeleccionado = 0;
 
@@ -24,6 +26,19 @@ namespace ProyectoFinal
             InitializeComponent();
         }
 
+
+        private void FrmCategoria_Load(object sender, EventArgs e)
+        {
+            CargarDatos();
+            ContarCategorias();
+            dashboard.CargarGrafico();
+            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCategorias.ReadOnly = true;
+            dgvCategorias.MultiSelect = false;
+            dgvCategorias.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+        }
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (txtNombreCategoria.Text == "")
@@ -32,11 +47,6 @@ namespace ProyectoFinal
                 return;
             }
 
-            if (txtDescripcionCat.Text == "")
-            {
-                errorProvider1.SetError(txtDescripcionCat, "No pueden haber campos vacios");
-                return;
-            }
 
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -57,6 +67,11 @@ namespace ProyectoFinal
                     txtDescripcionCat.Clear();
                     CargarDatos();
                     ContarCategorias();
+
+                    if (dashboard != null)
+                    {
+                        dashboard.CargarGrafico();
+                    }
                 }
                 catch (MySqlException ex)
                 {
@@ -131,6 +146,11 @@ namespace ProyectoFinal
                     txtDescripcionCat.Clear();
                     CargarDatos();
                     ContarCategorias();
+
+                    if (dashboard != null)
+                    {
+                        dashboard.CargarGrafico();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -168,6 +188,11 @@ namespace ProyectoFinal
                         txtDescripcionCat.Clear();
                         CargarDatos();
                         ContarCategorias();
+
+                        if (dashboard != null)
+                        {
+                            dashboard.CargarGrafico();
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -186,15 +211,7 @@ namespace ProyectoFinal
             txtDescripcionCat.Text = fila.Cells["descripcion"].Value.ToString();
         }
 
-        private void FrmCategoria_Load(object sender, EventArgs e)
-        {
-            CargarDatos();
-            ContarCategorias();
-            dgvCategorias.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCategorias.ReadOnly = true;
-            dgvCategorias.MultiSelect = false;
-        }
-
+        
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             txtID.Clear();

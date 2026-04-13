@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using System.Windows.Forms;
 namespace ProyectoFinal
 {
     public partial class Form1 : Form
@@ -40,7 +41,8 @@ namespace ProyectoFinal
                     if (count == 1)
                     {
                         FrmDashboard dash = new FrmDashboard();
-                        MessageBox.Show("Bienvenido, " + txtUsuario.Text);
+                        dash.usuarioLogueado = txtUsuario.Text;
+                        MessageBox.Show("Bienvenid@ al sistema, " + txtUsuario.Text);
                         dash.Show();
                         this.Hide();
                     }

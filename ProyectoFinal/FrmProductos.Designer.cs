@@ -50,11 +50,15 @@
             txtPrecio = new TextBox();
             label6 = new Label();
             panel2 = new Panel();
+            cmbFiltroCategoria = new ComboBox();
+            label8 = new Label();
             btnExportar = new Button();
             btnBuscar = new Button();
             txtBuscar = new TextBox();
-            labelTotCategorias = new Label();
+            labelTotProductos = new Label();
             label5 = new Label();
+            notifyIcon1 = new NotifyIcon(components);
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -64,13 +68,14 @@
             // dgvProductos
             // 
             dgvProductos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProductos.Location = new Point(13, 53);
+            dgvProductos.Location = new Point(5, 53);
             dgvProductos.Margin = new Padding(3, 2, 3, 2);
             dgvProductos.Name = "dgvProductos";
             dgvProductos.RowHeadersWidth = 51;
-            dgvProductos.Size = new Size(486, 192);
+            dgvProductos.Size = new Size(587, 192);
             dgvProductos.TabIndex = 13;
             dgvProductos.CellClick += dgvProductos_CellClick;
+            dgvProductos.DataBindingComplete += dgvProductos_DataBindingComplete;
             // 
             // errorProvider1
             // 
@@ -80,7 +85,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(46, 32);
+            label1.Location = new Point(33, 32);
             label1.Name = "label1";
             label1.Size = new Size(127, 17);
             label1.TabIndex = 19;
@@ -103,9 +108,9 @@
             panel1.Controls.Add(btnActualizar);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtPrecio);
-            panel1.Location = new Point(33, 41);
+            panel1.Location = new Point(20, 41);
             panel1.Name = "panel1";
-            panel1.Size = new Size(440, 431);
+            panel1.Size = new Size(396, 431);
             panel1.TabIndex = 18;
             // 
             // btnLimpiar
@@ -114,12 +119,13 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLimpiar.ForeColor = SystemColors.ButtonFace;
-            btnLimpiar.Location = new Point(349, 392);
+            btnLimpiar.Location = new Point(304, 392);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 27);
             btnLimpiar.TabIndex = 22;
             btnLimpiar.Text = "Limpiar";
             btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // labelStock
             // 
@@ -148,15 +154,16 @@
             txtStock.Location = new Point(13, 300);
             txtStock.Margin = new Padding(3, 2, 3, 2);
             txtStock.Name = "txtStock";
-            txtStock.Size = new Size(412, 23);
+            txtStock.Size = new Size(367, 23);
             txtStock.TabIndex = 15;
+            txtStock.TextChanged += txtStock_TextChanged;
             // 
             // cmbCategoria
             // 
             cmbCategoria.FormattingEnabled = true;
             cmbCategoria.Location = new Point(13, 170);
             cmbCategoria.Name = "cmbCategoria";
-            cmbCategoria.Size = new Size(412, 23);
+            cmbCategoria.Size = new Size(367, 23);
             cmbCategoria.TabIndex = 13;
             // 
             // label
@@ -174,7 +181,7 @@
             txtID.Enabled = false;
             txtID.Location = new Point(15, 40);
             txtID.Name = "txtID";
-            txtID.Size = new Size(410, 23);
+            txtID.Size = new Size(365, 23);
             txtID.TabIndex = 10;
             // 
             // label2
@@ -193,20 +200,21 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnEliminar.ForeColor = SystemColors.ControlLightLight;
-            btnEliminar.Location = new Point(241, 392);
+            btnEliminar.Location = new Point(211, 392);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 27);
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
+            btnEliminar.Click += btnEliminar_Click_1;
             // 
             // txtNombre
             // 
             txtNombre.Location = new Point(13, 105);
             txtNombre.Margin = new Padding(3, 2, 3, 2);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(412, 23);
+            txtNombre.Size = new Size(367, 23);
             txtNombre.TabIndex = 6;
             // 
             // btnGuardar
@@ -240,13 +248,14 @@
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnActualizar.ForeColor = SystemColors.ControlLightLight;
-            btnActualizar.Location = new Point(123, 392);
+            btnActualizar.Location = new Point(108, 392);
             btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(85, 27);
             btnActualizar.TabIndex = 9;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = false;
+            btnActualizar.Click += btnActualizar_Click_1;
             // 
             // label4
             // 
@@ -263,14 +272,14 @@
             txtPrecio.Location = new Point(13, 235);
             txtPrecio.Margin = new Padding(3, 2, 3, 2);
             txtPrecio.Name = "txtPrecio";
-            txtPrecio.Size = new Size(412, 23);
+            txtPrecio.Size = new Size(367, 23);
             txtPrecio.TabIndex = 8;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(518, 30);
+            label6.Location = new Point(434, 30);
             label6.Name = "label6";
             label6.Size = new Size(138, 17);
             label6.TabIndex = 21;
@@ -278,16 +287,37 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(label9);
+            panel2.Controls.Add(cmbFiltroCategoria);
+            panel2.Controls.Add(label8);
             panel2.Controls.Add(btnExportar);
             panel2.Controls.Add(btnBuscar);
             panel2.Controls.Add(txtBuscar);
-            panel2.Controls.Add(labelTotCategorias);
+            panel2.Controls.Add(labelTotProductos);
             panel2.Controls.Add(dgvProductos);
             panel2.Controls.Add(label5);
-            panel2.Location = new Point(507, 41);
+            panel2.Location = new Point(418, 41);
             panel2.Name = "panel2";
-            panel2.Size = new Size(514, 294);
+            panel2.Size = new Size(603, 294);
             panel2.TabIndex = 20;
+            // 
+            // cmbFiltroCategoria
+            // 
+            cmbFiltroCategoria.FormattingEnabled = true;
+            cmbFiltroCategoria.Location = new Point(338, 16);
+            cmbFiltroCategoria.Name = "cmbFiltroCategoria";
+            cmbFiltroCategoria.Size = new Size(173, 23);
+            cmbFiltroCategoria.TabIndex = 22;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.ForeColor = Color.FromArgb(0, 192, 0);
+            label8.Location = new Point(190, 261);
+            label8.Name = "label8";
+            label8.Size = new Size(114, 15);
+            label8.TabIndex = 21;
+            label8.Text = "Verde: stock normal ";
             // 
             // btnExportar
             // 
@@ -295,12 +325,13 @@
             btnExportar.FlatStyle = FlatStyle.Flat;
             btnExportar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnExportar.ForeColor = SystemColors.ControlLightLight;
-            btnExportar.Location = new Point(370, 254);
+            btnExportar.Location = new Point(463, 254);
             btnExportar.Name = "btnExportar";
             btnExportar.Size = new Size(129, 27);
             btnExportar.TabIndex = 20;
             btnExportar.Text = "Exportar a Excel";
             btnExportar.UseVisualStyleBackColor = false;
+            btnExportar.Click += btnExportar_Click;
             // 
             // btnBuscar
             // 
@@ -308,37 +339,57 @@
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = SystemColors.ControlLightLight;
-            btnBuscar.Location = new Point(424, 16);
+            btnBuscar.Location = new Point(517, 15);
             btnBuscar.Name = "btnBuscar";
             btnBuscar.Size = new Size(75, 27);
             btnBuscar.TabIndex = 18;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
+            btnBuscar.Click += btnBuscar_Click;
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(14, 16);
+            txtBuscar.Location = new Point(6, 16);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(377, 23);
+            txtBuscar.Size = new Size(326, 23);
             txtBuscar.TabIndex = 17;
             // 
-            // labelTotCategorias
+            // labelTotProductos
             // 
-            labelTotCategorias.AutoSize = true;
-            labelTotCategorias.Location = new Point(54, 261);
-            labelTotCategorias.Name = "labelTotCategorias";
-            labelTotCategorias.Size = new Size(13, 15);
-            labelTotCategorias.TabIndex = 16;
-            labelTotCategorias.Text = "0";
+            labelTotProductos.AutoSize = true;
+            labelTotProductos.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelTotProductos.ForeColor = Color.FromArgb(57, 127, 251);
+            labelTotProductos.Location = new Point(41, 261);
+            labelTotProductos.Name = "labelTotProductos";
+            labelTotProductos.Size = new Size(14, 15);
+            labelTotProductos.TabIndex = 16;
+            labelTotProductos.Text = "0";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(13, 261);
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(57, 127, 251);
+            label5.Location = new Point(5, 261);
             label5.Name = "label5";
-            label5.Size = new Size(35, 15);
+            label5.Size = new Size(37, 15);
             label5.TabIndex = 15;
             label5.Text = "Total:";
+            // 
+            // notifyIcon1
+            // 
+            notifyIcon1.Text = "notifyIcon1";
+            notifyIcon1.Visible = true;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(310, 261);
+            label9.Name = "label9";
+            label9.Size = new Size(136, 15);
+            label9.TabIndex = 23;
+            label9.Text = "Rojo: stock < 5 unidades";
             // 
             // FrmProductos
             // 
@@ -385,7 +436,7 @@
         private Button btnExportar;
         private Button btnBuscar;
         private TextBox txtBuscar;
-        private Label labelTotCategorias;
+        private Label labelTotProductos;
         private Label label5;
         private Label label;
         private ComboBox cmbCategoria;
@@ -393,5 +444,9 @@
         private TextBox txtStock;
         private Label labelStock;
         private Button btnLimpiar;
+        private Label label8;
+        private NotifyIcon notifyIcon1;
+        private ComboBox cmbFiltroCategoria;
+        private Label label9;
     }
 }

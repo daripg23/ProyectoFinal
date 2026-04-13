@@ -40,10 +40,10 @@
             errorProvider1 = new ErrorProvider(components);
             label4 = new Label();
             panel1 = new Panel();
+            pictureBox2 = new PictureBox();
             checkBoxMostrar = new CheckBox();
             label5 = new Label();
             btnRegistrate = new Button();
-            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -145,6 +145,16 @@
             panel1.Size = new Size(321, 410);
             panel1.TabIndex = 8;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(2, 71);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(318, 276);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
             // checkBoxMostrar
             // 
             checkBoxMostrar.AutoSize = true;
@@ -178,16 +188,6 @@
             btnRegistrate.UseVisualStyleBackColor = true;
             btnRegistrate.Click += btnRegistrate_Click;
             // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(43, 87);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(251, 223);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 0;
-            pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -206,6 +206,7 @@
             Controls.Add(label2);
             Controls.Add(txtUsuario);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;

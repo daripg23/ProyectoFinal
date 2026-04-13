@@ -29,6 +29,7 @@ namespace ProyectoFinal
             CargarDatos();
             ContarClientes();
             dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvClientes.ReadOnly = true;
             dgvClientes.MultiSelect = false;
             labelTelefono.Text = "";
@@ -102,6 +103,17 @@ namespace ProyectoFinal
                 return;
             }
 
+            if (labelTelefono.Text == "Formato inválido")
+            {
+                errorProvider1.SetError(txtTelefono, "Formato de teléfono inválido");
+                return;
+            }
+
+            if(labelCorreo.Text == "Correo inválido - Falta @dominio.com")
+            {
+                errorProvider1.SetError(txtCorreo, "Formato de correo inválido");
+                return;
+            }
 
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -186,7 +198,7 @@ namespace ProyectoFinal
         {
             string telefono = txtTelefono.Text;
 
-            // Validacion de formato XXXX-XXXX
+            
             if (System.Text.RegularExpressions.Regex.IsMatch(telefono, @"^\d{4}-\d{4}$"))
             {
                 labelTelefono.Text = "Formato válido";
@@ -328,6 +340,8 @@ namespace ProyectoFinal
             txtCorreo.Clear();
             txtDireccion.Clear();
             txtBuscar.Clear();
+            labelTelefono.Text = "";
+            labelCorreo.Text = "";
         }
     }
 }

@@ -346,20 +346,22 @@
             // labelTotClientes
             // 
             labelTotClientes.AutoSize = true;
-            labelTotClientes.Font = new Font("Segoe UI", 9.75F);
+            labelTotClientes.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            labelTotClientes.ForeColor = Color.FromArgb(57, 127, 251);
             labelTotClientes.Location = new Point(55, 256);
             labelTotClientes.Name = "labelTotClientes";
-            labelTotClientes.Size = new Size(15, 17);
+            labelTotClientes.Size = new Size(14, 15);
             labelTotClientes.TabIndex = 16;
             labelTotClientes.Text = "0";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9.75F);
+            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            label9.ForeColor = Color.FromArgb(57, 127, 251);
             label9.Location = new Point(14, 256);
             label9.Name = "label9";
-            label9.Size = new Size(39, 17);
+            label9.Size = new Size(37, 15);
             label9.TabIndex = 15;
             label9.Text = "Total:";
             // 
