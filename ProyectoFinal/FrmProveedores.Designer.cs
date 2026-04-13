@@ -62,6 +62,7 @@
             txtBuscar = new TextBox();
             labelTotProveedores = new Label();
             label5 = new Label();
+            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvProveedores).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -119,21 +120,22 @@
             panel1.Controls.Add(txtTelefono);
             panel1.Location = new Point(30, 41);
             panel1.Name = "panel1";
-            panel1.Size = new Size(373, 571);
+            panel1.Size = new Size(373, 517);
             panel1.TabIndex = 20;
             // 
             // txtContacto
             // 
-            txtContacto.Location = new Point(15, 171);
+            txtContacto.Location = new Point(15, 167);
             txtContacto.Name = "txtContacto";
             txtContacto.Size = new Size(348, 23);
             txtContacto.TabIndex = 31;
+            txtContacto.TextChanged += txtContacto_TextChanged;
             // 
             // label11
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(15, 442);
+            label11.Location = new Point(15, 420);
             label11.Name = "label11";
             label11.Size = new Size(159, 17);
             label11.TabIndex = 29;
@@ -141,7 +143,7 @@
             // 
             // txtProductos
             // 
-            txtProductos.Location = new Point(13, 466);
+            txtProductos.Location = new Point(13, 442);
             txtProductos.Margin = new Padding(3, 2, 3, 2);
             txtProductos.Name = "txtProductos";
             txtProductos.Size = new Size(350, 23);
@@ -150,7 +152,7 @@
             // labelCorreo
             // 
             labelCorreo.AutoSize = true;
-            labelCorreo.Location = new Point(19, 345);
+            labelCorreo.Location = new Point(19, 337);
             labelCorreo.Name = "labelCorreo";
             labelCorreo.Size = new Size(44, 15);
             labelCorreo.TabIndex = 28;
@@ -159,7 +161,7 @@
             // labelTelefono
             // 
             labelTelefono.AutoSize = true;
-            labelTelefono.Location = new Point(19, 263);
+            labelTelefono.Location = new Point(19, 258);
             labelTelefono.Name = "labelTelefono";
             labelTelefono.Size = new Size(44, 15);
             labelTelefono.TabIndex = 27;
@@ -169,7 +171,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(18, 373);
+            label10.Location = new Point(18, 363);
             label10.Name = "label10";
             label10.Size = new Size(65, 17);
             label10.TabIndex = 25;
@@ -177,7 +179,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(16, 397);
+            txtDireccion.Location = new Point(16, 386);
             txtDireccion.Margin = new Padding(3, 2, 3, 2);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(347, 23);
@@ -187,7 +189,7 @@
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(154, 296);
+            label9.Location = new Point(154, 295);
             label9.Name = "label9";
             label9.Size = new Size(105, 15);
             label9.TabIndex = 24;
@@ -197,7 +199,7 @@
             // 
             label8.AutoSize = true;
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(95, 211);
+            label8.Location = new Point(95, 210);
             label8.Name = "label8";
             label8.Size = new Size(122, 15);
             label8.TabIndex = 23;
@@ -209,7 +211,7 @@
             btnLimpiar.FlatStyle = FlatStyle.Flat;
             btnLimpiar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLimpiar.ForeColor = SystemColors.ButtonFace;
-            btnLimpiar.Location = new Point(287, 528);
+            btnLimpiar.Location = new Point(287, 479);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(75, 27);
             btnLimpiar.TabIndex = 22;
@@ -221,7 +223,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(15, 294);
+            label7.Location = new Point(15, 292);
             label7.Name = "label7";
             label7.Size = new Size(129, 17);
             label7.TabIndex = 14;
@@ -229,7 +231,7 @@
             // 
             // txtCorreo
             // 
-            txtCorreo.Location = new Point(13, 318);
+            txtCorreo.Location = new Point(13, 310);
             txtCorreo.Margin = new Padding(3, 2, 3, 2);
             txtCorreo.Name = "txtCorreo";
             txtCorreo.Size = new Size(350, 23);
@@ -240,7 +242,7 @@
             // 
             label.AutoSize = true;
             label.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label.Location = new Point(17, 141);
+            label.Location = new Point(17, 143);
             label.Name = "label";
             label.Size = new Size(132, 17);
             label.TabIndex = 12;
@@ -257,10 +259,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(15, 15);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(10, 49, 86);
+            label2.Location = new Point(15, 16);
             label2.Name = "label2";
-            label2.Size = new Size(88, 17);
+            label2.Size = new Size(92, 17);
             label2.TabIndex = 9;
             label2.Text = "ID Proveedor:";
             // 
@@ -270,7 +273,7 @@
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnEliminar.ForeColor = SystemColors.ControlLightLight;
-            btnEliminar.Location = new Point(200, 528);
+            btnEliminar.Location = new Point(200, 479);
             btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(75, 27);
@@ -281,7 +284,7 @@
             // 
             // txtNombreProveedor
             // 
-            txtNombreProveedor.Location = new Point(13, 105);
+            txtNombreProveedor.Location = new Point(13, 101);
             txtNombreProveedor.Margin = new Padding(3, 2, 3, 2);
             txtNombreProveedor.Name = "txtNombreProveedor";
             txtNombreProveedor.Size = new Size(350, 23);
@@ -293,7 +296,7 @@
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnGuardar.ForeColor = SystemColors.ControlLightLight;
-            btnGuardar.Location = new Point(16, 528);
+            btnGuardar.Location = new Point(16, 479);
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(75, 27);
@@ -306,7 +309,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(13, 75);
+            label3.Location = new Point(13, 78);
             label3.Name = "label3";
             label3.Size = new Size(133, 17);
             label3.TabIndex = 5;
@@ -318,7 +321,7 @@
             btnActualizar.FlatStyle = FlatStyle.Flat;
             btnActualizar.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btnActualizar.ForeColor = SystemColors.ControlLightLight;
-            btnActualizar.Location = new Point(103, 528);
+            btnActualizar.Location = new Point(103, 479);
             btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(85, 27);
@@ -331,7 +334,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(15, 209);
+            label4.Location = new Point(15, 208);
             label4.Name = "label4";
             label4.Size = new Size(70, 17);
             label4.TabIndex = 7;
@@ -339,7 +342,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(13, 235);
+            txtTelefono.Location = new Point(13, 232);
             txtTelefono.Margin = new Padding(3, 2, 3, 2);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(350, 23);
@@ -427,12 +430,22 @@
             label5.TabIndex = 15;
             label5.Text = "Total:";
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(57, 127, 251);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 566);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1044, 86);
+            panel3.TabIndex = 24;
+            // 
             // FrmProveedores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1044, 615);
+            ClientSize = new Size(1044, 652);
+            Controls.Add(panel3);
             Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(label1);
@@ -486,5 +499,6 @@
         private Label labelCorreo;
         private Label labelTelefono;
         private TextBox txtContacto;
+        private Panel panel3;
     }
 }

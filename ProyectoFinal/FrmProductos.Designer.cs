@@ -50,6 +50,7 @@
             txtPrecio = new TextBox();
             label6 = new Label();
             panel2 = new Panel();
+            label9 = new Label();
             cmbFiltroCategoria = new ComboBox();
             label8 = new Label();
             btnExportar = new Button();
@@ -58,7 +59,7 @@
             labelTotProductos = new Label();
             label5 = new Label();
             notifyIcon1 = new NotifyIcon(components);
-            label9 = new Label();
+            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvProductos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -187,10 +188,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(10, 49, 86);
             label2.Location = new Point(15, 15);
             label2.Name = "label2";
-            label2.Size = new Size(80, 17);
+            label2.Size = new Size(84, 17);
             label2.TabIndex = 9;
             label2.Text = "ID Producto:";
             // 
@@ -301,6 +303,16 @@
             panel2.Size = new Size(603, 294);
             panel2.TabIndex = 20;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.ForeColor = Color.Red;
+            label9.Location = new Point(310, 261);
+            label9.Name = "label9";
+            label9.Size = new Size(136, 15);
+            label9.TabIndex = 23;
+            label9.Text = "Rojo: stock < 5 unidades";
+            // 
             // cmbFiltroCategoria
             // 
             cmbFiltroCategoria.FormattingEnabled = true;
@@ -381,22 +393,22 @@
             notifyIcon1.Text = "notifyIcon1";
             notifyIcon1.Visible = true;
             // 
-            // label9
+            // panel3
             // 
-            label9.AutoSize = true;
-            label9.ForeColor = Color.Red;
-            label9.Location = new Point(310, 261);
-            label9.Name = "label9";
-            label9.Size = new Size(136, 15);
-            label9.TabIndex = 23;
-            label9.Text = "Rojo: stock < 5 unidades";
+            panel3.BackColor = Color.FromArgb(57, 127, 251);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 482);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1044, 86);
+            panel3.TabIndex = 22;
             // 
             // FrmProductos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1044, 484);
+            ClientSize = new Size(1044, 568);
+            Controls.Add(panel3);
             Controls.Add(label6);
             Controls.Add(panel2);
             Controls.Add(label1);
@@ -448,5 +460,6 @@
         private NotifyIcon notifyIcon1;
         private ComboBox cmbFiltroCategoria;
         private Label label9;
+        private Panel panel3;
     }
 }

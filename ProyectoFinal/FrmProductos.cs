@@ -178,7 +178,7 @@ namespace ProyectoFinal
                     {
                         notifyIcon1.BalloonTipTitle = "Stock Bajo";
                         notifyIcon1.BalloonTipText = $"El producto '{txtNombre.Text}' tiene solo {stock} unidades en stock.";
-                        notifyIcon1.ShowBalloonTip(3000);
+                        notifyIcon1.ShowBalloonTip(2000);
                     }
 
                     MessageBox.Show("Producto registrado correctamente!");
@@ -195,7 +195,6 @@ namespace ProyectoFinal
                         dashboard.CargarDatos();
                         dashboard.CargarGrafico();
                         dashboard.ProductosStockBajo();
-                        dashboard.VerificarStockBajo();
                     }
 
                 }
@@ -230,6 +229,16 @@ namespace ProyectoFinal
                     cmd.Parameters.AddWithValue("@id", idSeleccionado);
 
                     cmd.ExecuteNonQuery();
+
+                    int stock = Convert.ToInt32(txtStock.Text);
+
+                    if (stock < 5)
+                    {
+                        notifyIcon1.BalloonTipTitle = "Stock Bajo";
+                        notifyIcon1.BalloonTipText = $"El producto '{txtNombre.Text}' tiene solo {stock} unidades en stock.";
+                        notifyIcon1.ShowBalloonTip(2000);
+                    }
+
                     MessageBox.Show("Producto actualizado con éxito");
                     txtID.Clear();
                     txtNombre.Clear();
@@ -242,7 +251,6 @@ namespace ProyectoFinal
                         dashboard.CargarDatos();
                         dashboard.CargarGrafico();
                         dashboard.ProductosStockBajo();
-                        dashboard.VerificarStockBajo();
                     }
 
                 }
@@ -276,7 +284,8 @@ namespace ProyectoFinal
                         MySqlCommand cmd = new MySqlCommand(query, conn);
                         cmd.Parameters.AddWithValue("@id", idSeleccionado);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("Producto eliminado con exito");
+
+                        MessageBox.Show("Producto eliminado con éxito");
                         txtID.Clear();
                         txtNombre.Clear();
                         cmbCategoria.SelectedIndex = -1;
@@ -289,7 +298,6 @@ namespace ProyectoFinal
                             dashboard.CargarDatos();
                             dashboard.CargarGrafico();
                             dashboard.ProductosStockBajo();
-                            dashboard.VerificarStockBajo();
                         }
 
                     }

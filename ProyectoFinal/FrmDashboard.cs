@@ -28,15 +28,14 @@ namespace ProyectoFinal
             this.Text = "Panel Principal - Usuario: " + usuarioLogueado;
             labelUsuario.Text = usuarioLogueado;
 
-            ProductosStockBajo();
             ProveedoresRecientes();
-
-
-            VerificarStockBajo();
+            
             notifyIcon1.Icon = SystemIcons.Warning;
             notifyIcon1.Visible = true;
             notifyIcon1.BalloonTipIcon = ToolTipIcon.Warning;
             notifyIcon1.Text = "Alerta de Productos con Stock Bajo";
+            ProductosStockBajo();
+            VerificarStockBajo();
 
             dgvStock.ReadOnly = true;
             dgvStock.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -186,7 +185,7 @@ namespace ProyectoFinal
 
                         if (stock < 5)
                         {
-                            row.DefaultCellStyle.BackColor = Color.LightCoral;
+                            row.DefaultCellStyle.BackColor = Color.FromArgb(255, 138, 138);
                         }
                     }
                 }
@@ -216,6 +215,14 @@ namespace ProyectoFinal
                     da.Fill(dt);
 
                     dgvRecientes.DataSource = dt;
+
+                    foreach (DataGridViewRow row in dgvRecientes.Rows)
+                    {
+
+                        row.DefaultCellStyle.BackColor = Color.FromArgb(255, 238, 153);
+
+                    }
+
                 }
                 catch (Exception ex)
                 {
@@ -254,7 +261,7 @@ namespace ProyectoFinal
                     lblCategorias.Text = cmd4.ExecuteScalar().ToString();
 
 
-                    MySqlCommand cmd5 = new MySqlCommand("SELECT COUNT(*) FROM productos WHERE stock <= 5", conn);
+                    MySqlCommand cmd5 = new MySqlCommand("SELECT COUNT(*) FROM productos WHERE stock < 5", conn);
                     lblStockBajo.Text = cmd5.ExecuteScalar().ToString();
 
                     CargarGrafico();

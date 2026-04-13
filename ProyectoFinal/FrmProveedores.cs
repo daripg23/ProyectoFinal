@@ -36,7 +36,7 @@ namespace ProyectoFinal
             labelTelefono.Text = "";
             labelCorreo.Text = "";
         }
-        private void CargarDatos()   
+        private void CargarDatos()
         {
             using (MySqlConnection conn = new MySqlConnection(conexion))
             {
@@ -114,13 +114,13 @@ namespace ProyectoFinal
                 return;
             }
 
-            if(labelTelefono.Text == "Formato inválido")
+            if (labelTelefono.Text == "Formato inválido")
             {
                 errorProvider1.SetError(txtTelefono, "Formato de teléfono inválido");
                 return;
             }
 
-            if(labelCorreo.Text == "Correo inválido - Falta @dominio.com")
+            if (labelCorreo.Text == "Correo inválido - Falta @dominio.com")
             {
                 errorProvider1.SetError(txtCorreo, "Formato de correo inválido");
                 return;
@@ -265,6 +265,7 @@ namespace ProyectoFinal
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back)
             {
+                MessageBox.Show("No se permiten letras en el teléfono", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
             }
         }
@@ -364,6 +365,11 @@ namespace ProyectoFinal
             txtProductos.Clear();
             labelTelefono.Text = "";
             labelCorreo.Text = "";
+        }
+
+        private void txtContacto_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

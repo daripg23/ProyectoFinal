@@ -58,6 +58,7 @@
             label9 = new Label();
             label10 = new Label();
             label8 = new Label();
+            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -205,10 +206,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(10, 49, 86);
             label2.Location = new Point(15, 23);
             label2.Name = "label2";
-            label2.Size = new Size(66, 17);
+            label2.Size = new Size(69, 17);
             label2.TabIndex = 9;
             label2.Text = "ID Cliente:";
             // 
@@ -385,12 +387,22 @@
             label8.TabIndex = 19;
             label8.Text = "Listado de Clientes";
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(57, 127, 251);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 470);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1044, 86);
+            panel3.TabIndex = 20;
+            // 
             // FrmClientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
-            ClientSize = new Size(1044, 461);
+            ClientSize = new Size(1044, 556);
+            Controls.Add(panel3);
             Controls.Add(label8);
             Controls.Add(label10);
             Controls.Add(panel2);
@@ -440,5 +452,6 @@
         private Button btnExportar;
         private Label label8;
         private Button btnLimpiar;
+        private Panel panel3;
     }
 }

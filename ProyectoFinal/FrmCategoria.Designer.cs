@@ -50,6 +50,7 @@
             label5 = new Label();
             label1 = new Label();
             label6 = new Label();
+            panel3 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvCategorias).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             panel1.SuspendLayout();
@@ -194,10 +195,11 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.FromArgb(10, 49, 86);
             label2.Location = new Point(15, 15);
             label2.Name = "label2";
-            label2.Size = new Size(84, 17);
+            label2.Size = new Size(86, 17);
             label2.TabIndex = 9;
             label2.Text = "ID Categoría:";
             // 
@@ -291,12 +293,22 @@
             label6.TabIndex = 18;
             label6.Text = "Listado de Categorías";
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(57, 127, 251);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(0, 375);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(1044, 86);
+            panel3.TabIndex = 19;
+            // 
             // FrmCategoria
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             ClientSize = new Size(1044, 461);
+            Controls.Add(panel3);
             Controls.Add(label6);
             Controls.Add(label1);
             Controls.Add(panel2);
@@ -338,5 +350,6 @@
         private Label label1;
         private Label label6;
         private Button btnLimpiar;
+        private Panel panel3;
     }
 }

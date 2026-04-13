@@ -190,6 +190,7 @@ namespace ProyectoFinal
         {
             if (!char.IsDigit(e.KeyChar) && e.KeyChar != '-' && e.KeyChar != (char)Keys.Back)
             {
+                MessageBox.Show("No se permiten letras en el teléfono", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Handled = true;
             }
         }
