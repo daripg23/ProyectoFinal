@@ -88,7 +88,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(43, 32);
+            label1.Location = new Point(22, 32);
             label1.Name = "label1";
             label1.Size = new Size(134, 17);
             label1.TabIndex = 21;
@@ -118,9 +118,9 @@
             panel1.Controls.Add(btnActualizar);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(txtTelefono);
-            panel1.Location = new Point(30, 41);
+            panel1.Location = new Point(8, 41);
             panel1.Name = "panel1";
-            panel1.Size = new Size(373, 517);
+            panel1.Size = new Size(393, 517);
             panel1.TabIndex = 20;
             // 
             // txtContacto

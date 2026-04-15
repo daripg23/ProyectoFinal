@@ -194,9 +194,9 @@ namespace ProyectoFinal
                             dashboard.CargarGrafico();
                         }
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        MessageBox.Show("¡Esta categoría no puede eliminarse porque tiene productos asociados!", "Error");
                     }
                 }
             }

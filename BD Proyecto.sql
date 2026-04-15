@@ -54,5 +54,6 @@ CREATE TABLE proveedores (
     telefono VARCHAR(15) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     direccion VARCHAR(150),
-    productos_suministra TEXT
+    productos_suministra TEXT,
+    fecha_registro DATETIME DEFAULT CURRENT_TIMESTAMP
 );

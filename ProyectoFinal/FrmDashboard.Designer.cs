@@ -559,8 +559,8 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLightLight;
-            panel2.Controls.Add(labelUsuario);
             panel2.Controls.Add(pictureBox7);
+            panel2.Controls.Add(labelUsuario);
             panel2.Controls.Add(label3);
             panel2.Controls.Add(pictureBox1);
             panel2.Controls.Add(label1);
@@ -575,11 +575,12 @@
             labelUsuario.AutoSize = true;
             labelUsuario.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelUsuario.ForeColor = Color.FromArgb(57, 127, 251);
-            labelUsuario.Location = new Point(927, 14);
+            labelUsuario.Location = new Point(935, 14);
             labelUsuario.Name = "labelUsuario";
             labelUsuario.Size = new Size(61, 20);
             labelUsuario.TabIndex = 8;
             labelUsuario.Text = "usuario";
+            labelUsuario.TextAlign = ContentAlignment.MiddleRight;
             // 
             // pictureBox7
             // 
