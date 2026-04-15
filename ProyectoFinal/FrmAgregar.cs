@@ -11,7 +11,7 @@ namespace ProyectoFinal
 {
     public partial class FrmAgregar : Form
     {
-        string conexion = "server=localhost;database=inventario;uid=root;pwd=0819200500178";
+        string conexion = "server=localhost;database=proyectofinal;uid=root;pwd=1234";
         public FrmAgregar()
         {
             InitializeComponent();
@@ -48,12 +48,12 @@ namespace ProyectoFinal
                 try
                 {
                     conn.Open();
-                    string query = "INSERT INTO usuarios (usuario, password) VALUES (@usuario, @password)";
+                    string query = "INSERT INTO usuarios (usuario, contrasena) VALUES (@usuario, @contrasena)";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
                     cmd.Parameters.AddWithValue("@usuario", txtUsuario.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPassword.Text);
+                    cmd.Parameters.AddWithValue("@contrasena", txtPassword.Text);
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Usuario registrado correctamente");
@@ -68,6 +68,13 @@ namespace ProyectoFinal
         private void FrmAgregar_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            Form1 login = new Form1();
+            login.Show();
+            this.Hide();
         }
     }
 }
